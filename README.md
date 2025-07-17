@@ -7,7 +7,6 @@ An interactive, animated date invitation featuring a cute panda helper, floating
 
 An adorable, interactive web page that asks someone on a date with playful animations, sound effects, and a cute panda helper.
 
-![Screenshot of the invitation](https://i.imgur.com/placeholder.png) *(you can add a real screenshot later)*
 
 ## Features ✨
 
