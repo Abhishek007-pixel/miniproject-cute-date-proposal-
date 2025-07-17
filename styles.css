@@ -1,0 +1,485 @@
+/* Base Styles */
+body {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    margin: 0;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: #5e2b41;
+}
+
+/* Container */
+.container {
+    padding: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Heading */
+h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: #d23369;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Buttons */
+.buttons {
+    margin: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+button {
+    font-size: 1.2rem;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+#yes-btn {
+    background-color: #d23369;
+    color: white;
+}
+
+#yes-btn:hover {
+    background-color: #b52b5a;
+    transform: scale(1.05);
+}
+
+#no-btn {
+    background-color: #f8f9fa;
+    color: #495057;
+    transition: all 0.1s ease;
+}
+
+#no-btn:hover {
+    background-color: #e9ecef;
+}
+
+/* Popup */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    max-width: 80%;
+    animation: fadeIn 0.5s;
+    cursor: pointer;
+}
+
+.popup p {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    margin: 0.5rem 0;
+    color: #d23369;
+}
+
+/* Persuasive Messages */
+.persuasive-message {
+    position: absolute;
+    background-color: white;
+    padding: 12px 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.2rem;
+    color: #d23369;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    max-width: 200px;
+    text-align: center;
+    transform: translateX(-50%);
+}
+
+/* Hearts Background */
+.hearts-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23d23369"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') no-repeat center center;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Fireworks */
+.fireworks {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.firework {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px 5px;
+    animation: firework 1s ease-out forwards;
+    opacity: 0;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes firework {
+    0% { transform: translate(0, 0); opacity: 1; }
+    100% { transform: translate(var(--tx), var(--ty)); opacity: 0; }
+}
+
+/* ====== Super Cute Panda ====== */
+.animal-helper {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2));
+}
+
+.panda {
+    position: relative;
+    width: 150px;
+    height: 180px;
+    transform-origin: bottom center;
+    animation: gentleBounce 2s infinite alternate;
+}
+
+@keyframes gentleBounce {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+
+/* Panda facial features */
+.panda .face {
+    position: absolute;
+    top: 0;
+    width: 120px;
+    height: 120px;
+    background: white;
+    border-radius: 50%;
+    left: 15px;
+    box-shadow: inset 0 -5px 10px rgba(0,0,0,0.1);
+}
+
+.panda .ears {
+    position: absolute;
+    top: -25px;
+    width: 100%;
+}
+
+.panda .ear {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: #333;
+    border-radius: 50%;
+    box-shadow: inset -3px -3px 5px rgba(0,0,0,0.2);
+}
+
+.panda .ear.left {
+    left: 5px;
+    transform: rotate(-15deg);
+}
+
+.panda .ear.right {
+    right: 5px;
+    transform: rotate(15deg);
+}
+
+.panda .eyes {
+    position: absolute;
+    top: 45px;
+    width: 100%;
+}
+
+.panda .eye {
+    position: absolute;
+    width: 25px;
+    height: 30px;
+    background: #333;
+    border-radius: 50%;
+    box-shadow: inset -2px -2px 5px rgba(255,255,255,0.2);
+}
+
+.panda .eye::before {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+    top: 5px;
+    left: 5px;
+}
+
+.panda .eye.left {
+    left: 25px;
+}
+
+.panda .eye.right {
+    right: 25px;
+}
+
+.panda .mouth {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 15px;
+    border-radius: 0 0 20px 20px;
+    background: #ff6b7f;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 -3px 5px rgba(0,0,0,0.1);
+}
+
+.panda .blush {
+    position: absolute;
+    width: 20px;
+    height: 10px;
+    background: #ffb6c1;
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.panda .blush.left {
+    left: 20px;
+    top: 70px;
+}
+
+.panda .blush.right {
+    right: 20px;
+    top: 70px;
+}
+
+.panda .body {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 80px;
+    background: white;
+    border-radius: 40px;
+    box-shadow: inset 0 -5px 10px rgba(0,0,0,0.1);
+}
+
+.panda .arm {
+    position: absolute;
+    width: 30px;
+    height: 60px;
+    background: #333;
+    border-radius: 20px;
+    bottom: 50px;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    box-shadow: inset -3px -3px 5px rgba(0,0,0,0.2);
+    transform-origin: top center;
+}
+
+.panda .arm.left {
+    left: 5px;
+}
+
+.panda .arm.right {
+    right: 5px;
+}
+
+/* Happy state */
+.panda.happy {
+    animation: happyDance 0.5s ease infinite alternate;
+}
+
+.panda.happy .mouth {
+    width: 30px;
+    height: 20px;
+    border-radius: 20px;
+    background: #ff4757;
+}
+
+.panda.happy .blush {
+    opacity: 0.8;
+}
+
+@keyframes happyDance {
+    0% { transform: translateY(0) rotate(-5deg); }
+    100% { transform: translateY(-10px) rotate(5deg); }
+}
+
+/* Sad state */
+.panda.sad {
+    animation: sadTilt 3s ease infinite alternate;
+}
+
+.panda.sad .eye {
+    height: 8px;
+    border-radius: 8px;
+}
+
+.panda.sad .eye::before {
+    display: none;
+}
+
+.panda.sad .mouth {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: transparent;
+    border: 3px solid #333;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-left-color: transparent;
+    transform: translateX(-50%) rotate(180deg);
+}
+
+@keyframes sadTilt {
+    0% { transform: translateY(0) rotate(-2deg); }
+    100% { transform: translateY(0) rotate(2deg); }
+}
+
+/* Hugging GIF Styles */
+.hug-gif {
+    margin: 20px auto;
+    max-width: 200px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 3px solid #d23369;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    animation: pulse 2s infinite;
+}
+
+.hug-gif img {
+    width: 100%;
+    display: block;
+    border-radius: 8px;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Celebration state */
+.panda.celebrate {
+    animation: celebrate 1s infinite;
+}
+
+@keyframes celebrate {
+    0% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-20px) rotate(10deg); }
+    50% { transform: translateY(0) rotate(-10deg); }
+    75% { transform: translateY(-10px) rotate(5deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    button {
+        width: 80%;
+        padding: 10px 20px;
+    }
+    
+    .popup {
+        width: 90%;
+        padding: 1rem;
+    }
+    
+    .popup p {
+        font-size: 1.5rem;
+    }
+    
+    .persuasive-message {
+        min-width: 150px;
+        font-size: 1rem;
+    }
+    
+    .panda {
+        width: 120px;
+        height: 150px;
+    }
+    
+    .panda .face {
+        width: 100px;
+        height: 100px;
+        left: 10px;
+    }
+    
+    .hug-gif {
+        max-width: 150px;
+    }
+}
+/* Special Link Button */
+.special-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background-color: #d23369;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: pulse 2s infinite;
+}
+
+.special-link:hover {
+    background-color: #b52b5a;
+    transform: scale(1.05);
+}
+
+/* Make sure this exists for the pulse animation */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
